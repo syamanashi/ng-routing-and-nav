@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 
+// import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/delay';
+
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 
 @Injectable()
 export class HeroService {
-  getHeroes(): Promise<Hero[]> {
-    return Promise.resolve(HEROES);
+
+  getHeroes(): Observable<Hero[]> {
+    // This would usually be an http request observable.
+    return Observable.of(HEROES);
   }
 
-  // See the "Take it slow" appendix
-  getHeroesSlowly(): Promise<Hero[]> {
-    return new Promise(resolve => {
-      // Simulate server latency with 2 second delay
-      setTimeout(() => resolve(this.getHeroes()), 2000);
-    });
+  getHeroesSlowly(): Observable<Hero[]> {
+    return Observable.of(HEROES).delay(2000);
+  }
+
+  getHero(id: number | string): Observable<Hero> {
+    return this.getHeroes().map((heroes: Hero[]) => heroes.find(hero => hero.id === +id))
   }
 }
