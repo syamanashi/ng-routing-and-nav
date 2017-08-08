@@ -14,6 +14,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, { enableTracing: true })], // { enableTracing: true } for debugging purposes only.
-  exports: [RouterModule]
+  exports: [RouterModule], // By re-exporting the RouterModule here and importing AppRoutingModule in AppModule, the components declared in AppModule will have access to router directives such as RouterLink and RouterOutlet.
 })
 export class AppRoutingModule { }
