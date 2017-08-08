@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-crisis-list',
+  selector: 'hero-crisis-list',
   templateUrl: './crisis-list.component.html',
   styleUrls: ['./crisis-list.component.scss']
 })

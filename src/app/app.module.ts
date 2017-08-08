@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HeroesRoutingModule } from './modules/heroes/heroes-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HeroesRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
