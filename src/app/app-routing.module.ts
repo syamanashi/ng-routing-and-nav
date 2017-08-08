@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
-import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: 'crisis-center', component: CrisisListComponent },
-  { path: 'heroes', component: HeroListComponent },
+  { path: 'heroes', component: CrisisListComponent },
   { path: '', redirectTo: '/heroes', pathMatch: 'full' }, // pathMatch options: 'full', 'prefix'
   { path: '**', component: PageNotFoundComponent },
 ];
