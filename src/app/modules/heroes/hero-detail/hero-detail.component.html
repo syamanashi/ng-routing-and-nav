@@ -8,3 +8,7 @@
     <input [(ngModel)]="hero.name" placeholder="name" />
   </div>
 </div>
+
+<div *ngIf="!hero">
+  <h2>Hero Selection missing</h2>
+</div>
