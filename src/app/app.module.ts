@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './modules/heroes/heroes.module';
 
-import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrisisListComponent,
     PageNotFoundComponent
   ],
   imports: [

@@ -1,3 +1,17 @@
-<p>
-  crisis works!
-</p>
+<h2>CRISES</h2>
+<div *ngIf="crisis">
+  <h3>"{{ crisis.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ crisis.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="crisis.name" placeholder="name" />
+  </div>
+  <p>
+    <button (click)="gotoCrises()">Back</button>
+  </p>
+</div>
+
+<div *ngIf="!crisis">
+  <h2>Hero Selection missing</h2>
+</div>
