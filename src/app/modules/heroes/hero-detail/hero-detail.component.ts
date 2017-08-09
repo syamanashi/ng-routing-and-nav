@@ -1,19 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap'; // Needed to process the Observable route parameters.
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { slideInDownAnimation } from '../../../animations';
 
 @Component({
   selector: 'hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.scss']
+  styleUrls: ['./hero-detail.component.scss'],
+  animations: [slideInDownAnimation],
 })
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero; // Stores hero instance that gets updated by the switchMap of the Route's paramMap.
+
+  @HostBinding('@routeAnimation') routeAnimation = true; // set to trigger.  Only care about :enter and :leave states.
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'absolute';
 
   constructor(
     private route: ActivatedRoute,
