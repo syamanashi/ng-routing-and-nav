@@ -31,6 +31,7 @@ export class HeroDetailComponent implements OnInit {
     //    The switchMap operator also cancels previous in-flight requests. If the user re-navigates to this route with a new id while the HeroService is still retrieving the old id, switchMap discards that old request and returns the hero for the new id.
     //    Finally, you activate the observable with subscribe method and (re)set the component's hero property with the retrieved hero.
     //    Note: You do not need to unsubscribe from ActivatedRoute as the Router destroys a routed component when it is no longer needed and the injected ActivatedRoute dies with it.
+
     /**
      * NOTE: When you know for certain that a HeroDetailComponent instance will never, never, ever be re-used, you can simplify the code with the snapshot instead of using a .switchMap, like so:
      *    const id = this.route.snapshot.paramMap.get('id');
