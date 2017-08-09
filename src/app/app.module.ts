@@ -8,6 +8,7 @@ import { HeroesModule } from './modules/heroes/heroes.module';
 
 import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     BrowserModule,
     BrowserAnimationsModule,
     HeroesModule,
+    CrisisCenterModule,
     AppRoutingModule, // must remain after all feature modules.
   ],
   providers: [],
