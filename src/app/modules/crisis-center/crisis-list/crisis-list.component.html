@@ -1,6 +1,6 @@
-<!-- <h2>CRISES</h2> -->
 <ul class="crises">
   <li *ngFor="let crisis of crises | async" [class.selected]="isSelected(crisis)" (click)="onSelect(crisis)">
+    <!-- A relative routerLink would look like: <a [routerLink]="[crisis.id]" [class.selected]="isSelected(crisis)"> -->
     <span class="badge">{{crisis.id}}</span> {{crisis.name}}
   </li>
 </ul>
