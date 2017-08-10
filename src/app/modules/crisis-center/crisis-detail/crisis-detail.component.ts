@@ -9,11 +9,11 @@ import { slideInDownAnimation } from '../../../animations';
 
 
 @Component({
-  templateUrl: './crisis.component.html',
-  styleUrls: ['./crisis.component.scss'],
+  templateUrl: './crisis-detail.component.html',
+  styleUrls: ['./crisis-detail.component.scss'],
   animations: [slideInDownAnimation],
 })
-export class CrisisComponent implements OnInit {
+export class CrisisDetailComponent implements OnInit {
 
   @Input() crisis: Crisis;
 

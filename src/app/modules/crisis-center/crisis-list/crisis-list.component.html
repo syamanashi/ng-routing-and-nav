@@ -1,4 +1,4 @@
-<h2>CRISES</h2>
+<!-- <h2>CRISES</h2> -->
 <ul class="crises">
   <li *ngFor="let crisis of crises | async" [class.selected]="isSelected(crisis)" (click)="onSelect(crisis)">
     <span class="badge">{{crisis.id}}</span> {{crisis.name}}
@@ -6,3 +6,5 @@
 </ul>
 
 <button routerLink="/sidekicks">Go to sidekicks</button>
+
+<router-outlet></router-outlet>

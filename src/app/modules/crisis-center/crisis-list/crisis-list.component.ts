@@ -8,11 +8,10 @@ import { Crisis } from '../crisis';
 import { CrisisService } from '../crisis.service';
 
 @Component({
-  selector: 'hero-crises-list',
-  templateUrl: './crises-list.component.html',
-  styleUrls: ['./crises-list.component.scss']
+  templateUrl: './crisis-list.component.html',
+  styleUrls: ['./crisis-list.component.scss']
 })
-export class CrisesListComponent implements OnInit {
+export class CrisisListComponent implements OnInit {
 
   crises: Observable<Crisis[]>;
   private selectedId: number;
@@ -37,7 +36,7 @@ export class CrisesListComponent implements OnInit {
   }
 
   onSelect(crisis: Crisis): void {
-    this.router.navigate(['/crisis', crisis.id]);
+    this.router.navigate(['/crisis-center', crisis.id]);
   }
 
 }
