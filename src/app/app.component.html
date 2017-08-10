@@ -2,5 +2,10 @@
 <nav>
   <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
   <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+  <!-- ^ When the user clicks this link, display the component associated with the compose route in the popup outlet.  -->
 </nav>
+
+
 <router-outlet></router-outlet>
+<router-outlet name="popup"></router-outlet>
