@@ -11,7 +11,6 @@ import { HeroService } from '../hero.service';
   selector: 'hero-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss'],
-  // providers: [HeroService],
 })
 export class HeroListComponent implements OnInit {
 

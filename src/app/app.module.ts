@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; // For diagnostic troubleshooting only.
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +13,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './components/compose-message/compose-message.component';
 import { AuthService } from './auth.service';
+import { LoginModule } from './modules/login/login.module';
 
+/** AppRoutingModule must remain the last import, after all feature modules, so that its wild card routes will be handled last. */
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +29,16 @@ import { AuthService } from './auth.service';
     HeroesModule,
     CrisisCenterModule,
     AdminModule,
-    AppRoutingModule, // must remain after all feature modules.
+    LoginModule,
+    AppRoutingModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  // Diagnostic only: inspect router configuration
+  constructor(private router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}
