@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './modules/heroes/heroes.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module';
@@ -23,6 +24,7 @@ import { ComposeMessageComponent } from './components/compose-message/compose-me
     FormsModule,
     HeroesModule,
     CrisisCenterModule,
+    AdminModule,
     AppRoutingModule, // must remain after all feature modules.
   ],
   providers: [],
