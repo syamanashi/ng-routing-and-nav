@@ -7,7 +7,6 @@ import { Router } from '@angular/router'; // For diagnostic troubleshooting only
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './modules/heroes/heroes.module';
-import { AdminModule } from './modules/admin/admin.module';
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module';
@@ -29,7 +28,6 @@ import { DialogService } from './dialog.service';
     FormsModule,
     HeroesModule,
     CrisisCenterModule,
-    AdminModule,
     LoginModule,
     AppRoutingModule,
   ],

@@ -9,7 +9,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 const adminRoutes: Routes = [
   {
-    path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
+    path: '', component: AdminComponent, canActivate: [AuthGuard], children: [
       // A component-less route makes it easier to guard child routes.:
       {
         path: '', canActivateChild: [AuthGuard], children: [

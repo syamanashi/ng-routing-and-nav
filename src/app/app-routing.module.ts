@@ -7,6 +7,7 @@ import { CanDeactivateGuard } from './can-deactivate.guard';
 
 const appRoutes: Routes = [
   { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' }, // This 'compose' route targets the popup outlet and the ComposeMessageComponent will display there.
+  { path: 'admin', loadChildren: 'app/modules/admin/admin.module#AdminModule' },
   { path: '', redirectTo: '/heroes', pathMatch: 'full' }, // pathMatch options: 'full', 'prefix'
   { path: '**', component: PageNotFoundComponent },
 ];
