@@ -1,8 +1,17 @@
 <ul class="crises">
-  <li *ngFor="let crisis of crises | async" [class.selected]="isSelected(crisis)" (click)="onSelect(crisis)">
-    <!-- A relative routerLink would look like: <a [routerLink]="[crisis.id]" [class.selected]="isSelected(crisis)"> -->
+   <li *ngFor="let crisis of crises | async" [class.selected]="isSelected(crisis)" (click)="onSelect(crisis)">
     <span class="badge">{{crisis.id}}</span> {{crisis.name}}
-  </li>
+  </li> 
+  
+  <!-- 
+    The ActivatedRoute is implicit in a RouterLink directive.
+    So, a relative routerLink would look like:
+  -->
+  <!-- <li *ngFor="let crisis of crises | async">
+    <a [routerLink]="[crisis.id]" [class.selected]="isSelected(crisis)">
+      <span class="badge">{{ crisis.id }}</span> {{ crisis.name }}
+    </a>
+  </li> -->
 </ul>
 
 <button routerLink="/sidekicks">Go to sidekicks</button>

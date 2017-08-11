@@ -35,8 +35,12 @@ export class CrisisDetailComponent implements OnInit {
 
   gotoCrises() {
     const crisisId = this.crisis ? this.crisis.id : null;
-    // this.router.navigate(['/crisis-center', { id: crisisId, foo: 'foo' }]);
+
+    // Relative navigation back to crisis-center welcome message (utilizes a relative path along with "matrix URL Notation" parameter key value pairs):
     this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
+
+    // Absolute navigation:
+    // this.router.navigate(['/crisis-center', { id: crisisId, foo: 'foo' }]);
   }
 
 }
