@@ -31,12 +31,20 @@ export class CrisisDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.paramMap
-      .switchMap((params: ParamMap) => this.crisisService.getCrisis(params.get('id')))
-      .subscribe((crisis: Crisis) => {
-        this.crisis = crisis;
-        this.editName = crisis.name;
-      });
+
+    // Grab the crisis from the resolved data set on the route in crisis-center-routing by CrisisDetailResolverService.
+    this.route.data.subscribe((data: { crisis: Crisis }) => {
+      this.editName = data.crisis.name;
+      this.crisis = data.crisis;
+    });
+
+    // Grap the route params 'id' and set the crisis accordingly.
+    // this.route.paramMap
+    //   .switchMap((params: ParamMap) => this.crisisService.getCrisis(params.get('id')))
+    //   .subscribe((crisis: Crisis) => {
+    //     this.crisis = crisis;
+    //     this.editName = crisis.name;
+    //   });
   }
 
   canDeactivate(): Promise<boolean> | boolean {
@@ -52,6 +60,8 @@ export class CrisisDetailComponent implements OnInit {
   gotoCrises() {
     const crisisId = this.crisis ? this.crisis.id : null;
 
+    // Pass along the crisis id if available so that the CrisisListComponent can select that crisis.
+    // And a totally useless 'foo' parameter for kicks.
     // Relative navigation back to crisis-center welcome message (utilizes a relative path along with "matrix URL Notation" parameter key value pairs):
     this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
 
