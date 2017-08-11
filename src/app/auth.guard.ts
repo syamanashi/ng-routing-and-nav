@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { AuthService } from './auth.service';
@@ -44,8 +44,18 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     // Store the attempted URL for redirecting.
     this.authService.redirectUrl = url;
 
+    // Create a dummy session id
+    const sessionId = 123456789;
+
+    // Set our navigation extras object that contains our global query params and fragment.
+    // You can use these persistent bits of information for things that need to be provided across pages like authentication tokens or session ids.
+    const navigationExtras: NavigationExtras = {
+      queryParams: { 'session_id': sessionId },
+      fragment: 'anchor',
+    };
+
     // Navigate to the login page with extras.
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], navigationExtras);
     return false;
   }
 }
