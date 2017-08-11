@@ -12,7 +12,7 @@ const adminRoutes: Routes = [
     path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
       // A component-less route makes it easier to guard child routes.:
       {
-        path: '', children: [
+        path: '', canActivateChild: [AuthGuard], children: [
           { path: 'crises', component: ManageCrisesComponent },
           { path: 'heroes', component: ManageHeroesComponent },
           { path: '', component: AdminDashboardComponent }
