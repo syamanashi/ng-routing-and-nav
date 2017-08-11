@@ -14,6 +14,7 @@ import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module
 import { ComposeMessageComponent } from './components/compose-message/compose-message.component';
 import { AuthService } from './auth.service';
 import { LoginModule } from './modules/login/login.module';
+import { DialogService } from './dialog.service';
 
 /** AppRoutingModule must remain the last import, after all feature modules, so that its wild card routes will be handled last. */
 @NgModule({
@@ -32,13 +33,13 @@ import { LoginModule } from './modules/login/login.module';
     LoginModule,
     AppRoutingModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 
   // Diagnostic only: inspect router configuration
   constructor(private router: Router) {
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }

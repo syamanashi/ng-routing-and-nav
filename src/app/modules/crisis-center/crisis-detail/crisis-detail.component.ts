@@ -6,6 +6,7 @@ import 'rxjs/add/operator/switchMap'; // Needed to process the Observable route 
 import { Crisis } from '../crisis';
 import { CrisisService } from '../crisis.service';
 import { slideInDownAnimation } from '../../../animations';
+import { DialogService } from '../../../dialog.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { slideInDownAnimation } from '../../../animations';
 export class CrisisDetailComponent implements OnInit {
 
   @Input() crisis: Crisis;
+  editName: string;
 
   @HostBinding('@routeAnimation') routeAnimation = true; // set to trigger.  Only care about :enter and :leave states.
   @HostBinding('style.display') display = 'block';
@@ -24,13 +26,27 @@ export class CrisisDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: CrisisService,
+    private crisisService: CrisisService,
+    private dialogService: DialogService,
   ) { }
 
   ngOnInit() {
     this.route.paramMap
-      .switchMap((params: ParamMap) => this.service.getCrisis(params.get('id')))
-      .subscribe((crisis: Crisis) => this.crisis = crisis);
+      .switchMap((params: ParamMap) => this.crisisService.getCrisis(params.get('id')))
+      .subscribe((crisis: Crisis) => {
+        this.crisis = crisis;
+        this.editName = crisis.name;
+      });
+  }
+
+  canDeactivate(): Promise<boolean> | boolean {
+    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged.
+    if (!this.crisis || this.crisis.name === this.editName) {
+      return true;
+    }
+
+    // Otherwise, ask the user with the dialog service and return its promise which resolves to true or false when the user decides.
+    return this.dialogService.confirm('Discard changes?');
   }
 
   gotoCrises() {
@@ -41,6 +57,15 @@ export class CrisisDetailComponent implements OnInit {
 
     // Absolute navigation:
     // this.router.navigate(['/crisis-center', { id: crisisId, foo: 'foo' }]);
+  }
+
+  onCancel() {
+    this.gotoCrises();
+  }
+
+  onSave() {
+    this.crisis.name = this.editName;
+    this.gotoCrises();
   }
 
 }
