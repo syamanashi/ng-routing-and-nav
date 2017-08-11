@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from '../../auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
 import { ManageHeroesComponent } from './manage-heroes/manage-heroes.component';
@@ -8,7 +9,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 const adminRoutes: Routes = [
   {
-    path: 'admin', component: AdminComponent, children: [
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
       // A component-less route makes it easier to guard child routes.:
       {
         path: '', children: [
@@ -23,6 +24,7 @@ const adminRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(adminRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AdminRoutingModule { }
