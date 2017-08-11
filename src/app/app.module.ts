@@ -11,6 +11,7 @@ import { AdminModule } from './modules/admin/admin.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './components/compose-message/compose-message.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ComposeMessageComponent } from './components/compose-message/compose-me
     AdminModule,
     AppRoutingModule, // must remain after all feature modules.
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
