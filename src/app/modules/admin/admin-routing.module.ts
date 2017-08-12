@@ -25,6 +25,6 @@ const adminRoutes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(adminRoutes)],
   exports: [RouterModule],
-  providers: [AuthGuard],
+  providers: [],
 })
 export class AdminRoutingModule { }
