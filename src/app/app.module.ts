@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './modules/heroes/heroes.module';
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { CrisisCenterModule } from './modules/crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './components/compose-message/compose-message.component';
 import { AuthService } from './auth.service';
 import { LoginModule } from './modules/login/login.module';
@@ -27,7 +26,6 @@ import { DialogService } from './dialog.service';
     BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
-    CrisisCenterModule,
     LoginModule,
     AppRoutingModule,
   ],
