@@ -5,7 +5,7 @@ import 'rxjs/add/operator/switchMap'; // Needed to process the Observable route 
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { slideInDownAnimation } from '../../../animations';
+import { slideInDownAnimation } from '../../animations';
 
 @Component({
   selector: 'hero-detail',

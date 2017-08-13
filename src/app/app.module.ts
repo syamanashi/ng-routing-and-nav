@@ -5,11 +5,11 @@ import { Router } from '@angular/router'; // For diagnostic troubleshooting only
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeroesModule } from './modules/heroes/heroes.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 
 import { AuthService } from './auth.service';
-import { LoginModule } from './modules/login/login.module';
+import { LoginModule } from './login/login.module';
 import { DialogService } from './dialog.service';
 import { SharedModule } from './shared/shared.module';
 

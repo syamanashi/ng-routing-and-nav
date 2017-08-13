@@ -5,8 +5,8 @@ import 'rxjs/add/operator/switchMap'; // Needed to process the Observable route 
 
 import { Crisis } from '../crisis';
 import { CrisisService } from '../crisis.service';
-import { slideInDownAnimation } from '../../../animations';
-import { DialogService } from '../../../dialog.service';
+import { slideInDownAnimation } from '../../animations';
+import { DialogService } from '../../dialog.service';
 
 
 @Component({

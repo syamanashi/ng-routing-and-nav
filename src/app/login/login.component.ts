@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   templateUrl: './login.component.html',

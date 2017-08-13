@@ -9,8 +9,8 @@ import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
 
 const appRoutes: Routes = [
   { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' }, // This 'compose' route targets the popup outlet and the ComposeMessageComponent will display there.
-  { path: 'admin', loadChildren: 'app/modules/admin/admin.module#AdminModule', canLoad: [AuthGuard] },
-  { path: 'crisis-center', loadChildren: 'app/modules/crisis-center/crisis-center.module#CrisisCenterModule', data: { preload: true } },
+  { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule', canLoad: [AuthGuard] },
+  { path: 'crisis-center', loadChildren: 'app/crisis-center/crisis-center.module#CrisisCenterModule', data: { preload: true } },
   { path: '', redirectTo: '/heroes', pathMatch: 'full' }, // pathMatch options: 'full', 'prefix'
   { path: '**', component: PageNotFoundComponent },
 ];
