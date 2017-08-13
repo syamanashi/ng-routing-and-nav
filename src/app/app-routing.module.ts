@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { ComposeMessageComponent } from './components/compose-message/compose-message.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { ComposeMessageComponent } from './shared/compose-message/compose-message.component';
 import { CanDeactivateGuard } from './can-deactivate.guard';
 import { AuthGuard } from './auth.guard';
 import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
