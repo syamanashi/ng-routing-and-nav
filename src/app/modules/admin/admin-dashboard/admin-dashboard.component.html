@@ -4,3 +4,9 @@
 
 <a id="anchor"></a>
 <p>Token: {{ token | async }}</p>
+
+<br>
+<p>Preloaded Modules</p>
+<ul>
+    <li *ngFor="let module of preloadedModules">{{ module }}</li>
+</ul>

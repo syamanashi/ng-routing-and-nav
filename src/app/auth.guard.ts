@@ -41,7 +41,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
       return true;
     }
 
-    // Store the attempted URL for redirecting.
+    // Store the attempted URL for future redirecting after successful Login.
     this.authService.redirectUrl = url;
 
     // Create a dummy session id
